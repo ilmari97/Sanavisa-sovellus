@@ -1,6 +1,5 @@
 --- SANAVISA-SOVELLUKSEN ASENNUS- JA KÄYTTÖOHJE ---
 
-SOVELLUKSEN KUVAUS:
 	Sanavisa on suomi-englanti sanaharjoittelu-sovellus, joka pyörii selaimessa.
 
 ---
@@ -12,7 +11,7 @@ Valmis sovelluksen asennuspaketti löytyy tästä GitHub-arkistosta.
 
 ---
 
-**Kehittäjän Setup (Projektin Ajaminen Koodista)**
+**Kehittäjän setup (projektin ajaminen koodista)**
 
 **Nämä ohjeet on tarkoitettu niille, jotka haluavat ajaa sovellusta kehitystilassa tai muokata lähdekoodia.**
 
@@ -21,7 +20,7 @@ Valmis sovelluksen asennuspaketti löytyy tästä GitHub-arkistosta.
     git clone https://github.com/ilmari97/Sanavisa-sovellus.git
     cd Sanavisa-sovellus
     ```
-2.  **Virtuaaliympäristö ja Riippuvuudet:**
+2.  **Virtuaaliympäristö ja riippuvuudet:**
     Luo ja aktivoi virtuaaliympäristö, ja asenna riippuvuudet:
     ```bash
     # (Aktivoi venv)
