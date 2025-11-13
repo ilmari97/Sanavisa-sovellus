@@ -5,27 +5,53 @@ SOVELLUKSEN KUVAUS:
 
 ---
 
-ASENNUS JA KÄYTTÖ:
+**Valmis käyttöversio (Windows)**
 
-1. PURKAMINEN:
-	Pura zip-tiedosto haluamaasi kansioon, johon sinulla on käyttöoikeudet. Älä pura työpöydän juureen tai järjestelmäkansioihin.
+Valmis sovelluksen asennuspaketti löytyy tästä GitHub-arkistosta.
+[Lataa valmis ZIP-tiedosto tästä](https://github.com/ilmari97/Sanavisa-sovellus/blob/adef512f0d10124e0f43e8e5af7f47296f9def02/sanakirja_v1.1.zip)
 
-2. TARKISTUS:
+---
+
+**Kehittäjän Setup (Projektin Ajaminen Koodista)**
+
+**Nämä ohjeet on tarkoitettu niille, jotka haluavat ajaa sovellusta kehitystilassa tai muokata lähdekoodia.**
+
+1.  **Kloonaa arkisto:**
+    ```bash
+    git clone https://github.com/ilmari97/Sanavisa-sovellus.git
+    cd Sanavisa-sovellus
+    ```
+2.  **Virtuaaliympäristö ja Riippuvuudet:**
+    Luo ja aktivoi virtuaaliympäristö, ja asenna riippuvuudet:
+    ```bash
+    # (Aktivoi venv)
+    pip install -r requirements.txt
+    ```
+3.  **Aja sovellus:**
+    ```bash
+    python sovellus.py
+    ```
+
+---
+
+Asennus ja käyttö:
+
+1. **Purkaminen:**
+	Pura zip-tiedosto haluamaasi kansioon, johon sinulla on kirjoitusoikeudet. Älä pura työpöydän juureen tai järjestelmäkansioihin.
+
+2. **Tarkistus:**
 	Varmista että kansiossa on seuraavat kolme tiedostoa:
 	- sovellus.exe
 	- sanalista.json (Tallennetut sanaparit)
 	- tilastot.json (Tallennetut pelitulokset)
 
-3. KÄYNNISTYS:
-	Käynnistä sovellus.exe
-
-4. PALVELIN:
-	Musta konsoli-ikkuna (palvelin) avautuu. **Älä sulje tätä ikkunaa!**
-   	Kun näet konsolissa viestin "Running on...", avaa selain ja siirry osoitteeseen:
+3. **Käynnistys:**
+	- Käynnistä sovellus.exe
+	- Musta konsoli-ikkuna (palvelin) avautuu. **Älä sulje tätä ikkunaa!**
+   	- Kun näet konsolissa viestin "Running on...", avaa selain ja siirry osoitteeseen:
 
       		http://127.0.0.1:5000
 
-5. LOPETUS: 
-	Lopeta sovellus sulkemalla ensin selainikkuna ja sitten **sulje konsoli-ikkuna**.
+	Käyttäjä voi sulkea sovelluksen sulkemalla ensin selainikkunan ja sitten konsoli-ikkunan.
 
 ---
