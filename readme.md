@@ -8,7 +8,7 @@ SOVELLUKSEN KUVAUS:
 **Valmis käyttöversio (Windows)**
 
 Valmis sovelluksen asennuspaketti löytyy tästä GitHub-arkistosta.
-[Lataa valmis ZIP-tiedosto tästä](https://github.com/ilmari97/Sanavisa-sovellus/blob/adef512f0d10124e0f43e8e5af7f47296f9def02/sanakirja_v1.1.zip)
+[Lataa valmis ZIP-tiedosto tästä](https://github.com/ilmari97/Sanavisa-sovellus/releases/latest)
 
 ---
 
