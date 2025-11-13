@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang = "fi">
+<head>
+    <meta charset = "UTF-8">
+    <title>Sanakirja</title>
+    <style>
+        .valikko-painike {
+            display: block;
+            width: 250px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #0056b3;
+            background-color: #007bff;
+            color: white;
+            text-align: left;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .valikko-painike:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tervetuloa sanakirjaan!</h1>
+    <p>Sanakirjassa on tällä hetkellä {{ sanakirjan_koko }} sanaa.</p>
+
+    {% if paivan_sana %}
+        <h3>Päivän sana:</h3>
+        <p><strong>{{ paivan_sana.suomi }}</strong> (suomi) = <strong>{{ paivan_sana.englanti }}</strong> (englanti)</p>
+        <hr>
+    {% endif %}
+
+    <h2>Valitse toiminto:</h2>
+
+
+    <button class = "valikko-painike" onclick = "window.location.href = '{{ url_for('lisaa_sana') }}';">
+        1) Lisää sana
+    </button>
+
+    {% if sanakirjan_koko >= 5 %}
+        <p>
+            <form method = "POST" action = "{{ url_for('aloita_peli') }}" >
+                <input type = "submit" value = "2) Harjoittele visaa" class = "valikko-painike">
+            </form>
+        </p>
+    {% else %}
+        <p>2) Harjoittelu vaatii vähintään 5 sanaa.</p>
+    {% endif %}
+
+    <button class = "valikko-painike" onclick = "window.location.href = '{{ url_for('kaikki_sanat_web') }}';">
+        3) Näytä kaikki sanat
+    </button>
+
+    <button class = "valikko-painike" onclick = "window.location.href = '{{ url_for('nayta_tilastot') }}';">
+        4) Näytä tilastot
+    </button>
+
+    <p>Sulje selainikkuna lopettaaksesi</p>
+
+</body>
+</html>

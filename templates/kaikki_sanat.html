@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang = "fi">
+<head>
+    <meta charset = "utf-8">
+    <title>Kaikki sanat</title>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            min-width: 150px;
+            max-width: 300px;
+            word-wrap: break-word;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .pagination {
+            margin: 20px 0 30px;
+            text-align: center;
+        }
+        .pagination a {
+            padding: 8px 16px;
+            border: none;
+            margin: 0 8px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 1.1em;
+            display: inline-block;
+            transition: background-color 0.2s;
+        }
+        .pagination a:hover {
+            background-color: #0056b3;
+        }
+        .pagination .active {
+            background-color: #5baaff;
+            color: white;
+            border-color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kaikki sanat</h1>
+
+    <div style = "text-align: center; margin-bottom: 20px; font-size: 1.1em;">
+        Sanoja yhteensä: {{ yhteensa_sanoja }} | Näytetään {{ sivu_koko }} per sivu
+    </div>
+
+    {% if sanat %}
+
+    <div class = "pagination">
+        {% for sivu in range(1, sivuja_yhteensa + 1) %}
+            <a href = "{{ url_for('kaikki_sanat_web', sivu = sivu) }}"
+                class = "{{ 'active' if sivu == sivu_nro else '' }}">
+                Sivu {{ sivu }}
+            </a>
+            {% endfor %}
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Suomi</th>
+                <th>Englanti</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for suomi, englanti in sanat %}
+            <tr>
+                <td>{{ suomi }}</td>
+                <td>{{ englanti }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class = "pagination">
+        {% for sivu in range(1, sivuja_yhteensa + 1) %}
+            <a href = "{{ url_for('kaikki_sanat_web', sivu = sivu) }}"
+                class = "{{ 'active' if sivu == sivu_nro else '' }}">
+                Sivu {{ sivu }}
+            </a>
+            {% endfor %}
+    </div>
+
+    {% else %}
+        <p>Sanalista on tyhjä.</p>
+    {% endif %}
+
+    <p style = "text-align: center; margin-top: 30px;"><a href = "{{ url_for('valikko') }}">Palaa valikkoon</a></p>
+</body>
+</html>

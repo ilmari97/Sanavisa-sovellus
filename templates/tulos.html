@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang = "fi">
+<head>
+    <meta charset = "utf-8">
+    <title>Tulokset</title>
+    <style>
+        .palaute {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .palaute.oikein {
+            background-color: lightgreen;
+            color: darkgreen;
+        }
+        .palaute.vaarin {
+            background-color: lightcoral;
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <h1>Peli päättyi</h1>
+
+    <h2>Tuloksesi:</h2>
+    <p>Pisteet: {{ pisteet }} / {{ yhteensa }} pistettä!</p>
+    <p>Oikein vastattu: {{ prosentti }} %</p>
+
+    {% if vaarat_vastaukset %}
+        <h2>Väärin menneet sanat:</h2>
+        <table>
+            <tr>
+                <th>Kysymys</th>
+                <th>Oikea vastaus</th>
+                <th>Käyttäjän vastaus</th>
+            </tr>
+            {% for vaara in vaarat_vastaukset %}
+            <tr>
+                <td>{{ vaara.kysymys }}</td>
+                <td><strong>{{ vaara.oikea }}</strong></td>
+                <td>{{ vaara.kayttaja }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    {% if kysy_nimi == True %}
+        <h3>Tallenna tulos</h3>
+        <form method = "POST" action = "{{ url_for('tallenna_tulos') }}">
+            <label for = "nimi">Nimesi (max 20 merkkiä):</label><br>
+            <input type = "text" id = "nimi" name = "nimi" maxlength = 20 required><br><br>
+            <input type = "submit" value = "Tallenna tulos ja näytä tilastot">
+        </form>
+    {% endif %}
+
+    <p><a href = "{{ url_for('valikko') }}">Palaa valikkoon</a></p>
+</body>
+</html>

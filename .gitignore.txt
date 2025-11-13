@@ -1,0 +1,19 @@
+# Pythonin automaattisesti luomat tiedostot
+__pycache__/
+*.pyc
+
+# Virtuaaliympäristöt
+venv/
+.venv/
+
+# PyInstallern tuottamat tiedostot
+build/
+dist/
+*.spec
+*.spec.bak
+
+# Logi- ja tilapäistiedostot
+*.log
+
+# Käyttöjärjestelmän/Editorin tiedostot
+.DS_Store

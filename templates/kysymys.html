@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang = "fi">
+<head>
+    <meta charset = "utf-8">
+    <title>Sanavisa</title>
+    <style>
+        .palaute {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .palaute.oikein {
+            background-color: lightgreen;
+            color: darkgreen;
+        }
+        .palaute.vaarin {
+            background-color: lightcoral;
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sanavisa</h1>
+
+    {% if edellinen_palaute %}
+            <p class = "palaute {{ palaute_tyyppi }}">
+                {{ edellinen_palaute }}
+            </p>
+        {% endif %}
+
+    <p>Kierros {{ kierros_nro }} / {{ yhteensä }} | Pisteet: {{ pisteet }}</p>
+
+    <h2>
+        {% if pelimuoto == 1 %}
+            Mikä on {{ kysymys }} englanniksi?
+        {% else %}
+            Mikä on {{ kysymys }} suomeksi?
+        {% endif %}
+    </h2>
+
+    <form method = "POST" action = "{{ url_for('kysy_sana') }}">
+        <label for = "vastaus">Vastaus:</label>
+        <input type = "text" id = "vastaus" name = "vastaus" required autocomplete = "off" autofocus><br><br>
+
+        <input type = "submit" value = "Tarkista vastaus">
+    </form>
+
+    <p><a href = "{{ url_for('valikko') }}">Lopeta peli ja palaa valikkoon</a></p>
+</body>
+</html>

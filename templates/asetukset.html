@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang = "fi">
+<head>
+    <meta charset = "utf-8">
+    <title>Pelin asetukset</title>
+</head>
+<body>
+    <h1>Pelin asetukset</h1>
+
+    <p>Sanavarasto sisältää {{ max_kierrokset }} sanaa.</p>
+
+    <form method = "POST" action = "{{ url_for('peli_asetettu') }}">
+
+        <h2>Kierrosmäärä</h2>
+        <label for = "kierrokset">Kuinka monta kierrosta haluat pelata? (Min 5, Max {{ max_kierrokset }}):</label><br>
+        <input type = "number" id = "kierrokset" name = "kierrokset" min = "5" max = "{{ max_kierrokset }}" required><br><br>
+
+        <h2>Pelimuoto</h2>
+        <input type = "radio" id = "suomi_englanti" name = "pelimuoto" value = "1" required>
+        <label for = "suomi_englanti">1) Suomi/Englanti</label><br>
+        
+        <input type = "radio" id = "englanti_suomi" name = "pelimuoto" value = "2">
+        <label for = "englanti_suomi">2) Englanti/Suomi</label><br><br>
+
+        <input type = "submit" value = "Aloita peli">
+    </form>
+
+    <p><a href = "{{ url_for('valikko') }}">Palaa valikkoon</a></p>
+</body>
+</html>

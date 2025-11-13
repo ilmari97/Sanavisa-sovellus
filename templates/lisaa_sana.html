@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset = "utf-8">
+    <title>Lisää sana</title>
+</head>
+<body>
+    <h1>Lisää uusi sana</h1>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul style = "list-style-type: none; padding: 0;">
+            {% for message in messages %}
+                <li style = "color: red; font-weight: bold;">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form method = "POST" action = "{{ url_for('lisaa_sana') }}">
+        <label for = "suomi">Suomeksi:</label>
+        <input type = "text" id = "suomi" name = "suomi" required><br><br>
+
+        <label for = "englanti">Englanniksi:</label>
+        <input type = "text" id = "englanti" name = "englanti" required><br><br>
+
+        <input type = "submit" value = "Lisää">
+    </form>
+
+    <p><a href = "{{ url_for('valikko') }}">Palaa valikkoon</a></p>
+</body>
+</html>
